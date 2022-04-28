@@ -18,9 +18,7 @@
 apt-get update
 apt-get -y install git rsync python3-pip python3-sphinx python3-sphinx-rtd-theme
 
-echo "Trying to do the install!!"
 python3 -m pip install --upgrade Sphinx myst-parser
-echo "Install attempted"
  
 #####################
 # DECLARE VARIABLES #
@@ -47,7 +45,7 @@ git config --global user.name "${GITHUB_ACTOR}"
 git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
  
 docroot=`mktemp -d`
-rsync -av "docs/_build/html/" "${docroot}/"
+rsync -av "docs/build/html/" "${docroot}/"
  
 pushd "${docroot}"
  

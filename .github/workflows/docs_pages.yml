@@ -20,11 +20,6 @@ jobs:
         apt-get install -y git
         git clone --depth 1 "https://github.com/thatscotdatasci/DoGO-RL" .
       shell: bash
-
-    # - uses: actions/setup-python@v3
-    #   with:
-    #     python-version: '3.8'
-    #     architecture: 'x64'
  
     - name: Execute script to build our documentation and update pages
       env:
