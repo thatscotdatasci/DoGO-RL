@@ -18,7 +18,8 @@
 apt-get update
 apt-get -y install git rsync python3-sphinx python3-sphinx-rtd-theme
 
-pip install --upgrade myst-parser
+which python
+pip3 install --upgrade myst-parser
  
 #####################
 # DECLARE VARIABLES #
