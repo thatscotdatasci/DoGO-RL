@@ -29,6 +29,11 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
+myst_enable_extensions = [
+    'dollarmath',
+    'amsmath'
+]
+
 templates_path = ['_templates']
 
 master_doc = 'index'

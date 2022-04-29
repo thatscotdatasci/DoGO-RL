@@ -17,7 +17,7 @@ Causal Inference
 .. toctree::
    :maxdepth: 1
 
-   causal_inference/causal_reinforcement_learning
+   causal_inference/causal_rl
 
 Domain Generalisation
 ---------------------
