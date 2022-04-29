@@ -27,6 +27,8 @@ The following steps were necessary:
 - Clone the [D4RL Git repo](https://github.com/rail-berkeley/d4rl) within the MOPO repo: `git clone git@github.com:rail-berkeley/d4rl.git`
 - Within `d4rl/setup.py`, comment out the requirement for dm_control
 - Clone the [dm_control repo](https://github.com/deepmind/dm_control): `git clone git@github.com:deepmind/dm_control.git`
+- cd into `dm_control` and run `git checkout 2cb60cb9ca5921f2a82e6e371b0bcc4a1a96e610`
+  - This is likely to be the version used in the paper, or at least close
 - Run `pip install -e dm_control`
 - Run `pip install -e d4rl`
 - Clone the [vikit Git repo](https://github.com/vitchyr/viskit): `git clone git@github.com:vitchyr/viskit.git`
