@@ -144,7 +144,7 @@ Usually undesirable to perform online learning. Want to leverage data collected 
 Want to move towards realistic learning scenarios where the modalities come together, including when the most traditional, and provably necessary, assumptions do not hold.
 
 Robotics example: learning by demonstration when the teacher can observe a richer context (e.g., more accurate sensors).
-$$
+
 Shows a good example where observational data was retained and used when performing exploration (i.e. when we move from the _"seeing"_ to the _"doing"_ paradigm). A problem is encountered whereby there is a mismatch between $\mathbb{E}[Y|X]$ and $\mathbb{E}[Y|do(X)]$, which leads to the prior information damaging the agent's performance (higher cumulative regret it obtained). Reducing the number of prior information is beneficial to agent performance, rather than detrimental.
 
 The solution is to bound $\mathbb{E}[Y|do(X)]$ from observations $P(x,y)$. Given the observations coming from an distribution $P(x,y)$, the average causal effect $\mathbb{E}[Y|do(X)]$ is bounded in $[l_x,h_x]$, where $l_x=\mathbb{E}[Y|x]P(x)$ and $h_x=l_x+1-P(x)$
