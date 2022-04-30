@@ -158,3 +158,7 @@ In general, it is assumed that there is a policy space such that actions are fix
 Agents act in a reflexive manner, without considering the reasons (or causes) for behaving in a particular way. Whenever this is the case, they can be exploited without ever realising. This is general phenomenon in online learning - all known RL algorithms are causal-insensitive.
 
 Goal is to endow agents with the capability of performing counterfactual reasoning (taking their own intent into account), which leads to a more refined notion of regret and a new OPT function.
+
+### CRL Cheat Sheet
+
+![cheat_sheet](causal_rl/causal_rl_5.png)
