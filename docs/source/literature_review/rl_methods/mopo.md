@@ -1,6 +1,8 @@
 # MOPO: Model-based Offline Policy Optimization
 
-Paper link: [Arxiv](https://arxiv.org/abs/2005.13239)
+- Paper link: [Arxiv](https://arxiv.org/abs/2005.13239)
+- Git Repo: [GitHub](https://github.com/tianheyu927/mopo)
+
 ## Key Points
 
 The following were the key takeaways:
@@ -8,7 +10,14 @@ The following were the key takeaways:
 - Importance for an offline RL algorithm to be able to leave the support of the training data:
   - The provided batch dataset is usually sub-optimal in terms of both the states and actions covered by the dataset
   - The target task can be different from the tasks performed in the batch data for various reasons (e.g., hard to collect for the target task)
+- State-of-the-art off-policy model based (MBPO) and model-free algorithms evaluated. Model-based method and its variant without ensembles show surprisingly large gains. Suggests that model-based methods are particularly well-suited for the batch setting.
+- Quantifying the risk imposed by imperfect dynamics and appropriately trading off that risk with the return is a key ingredient towards building a strong offline model-based RL algorithm
+- The authors modify MBPO to to incorporate a _reward penalty_ based on an estimate of the model error. Estimate is model-dependent and does not necessarily penalise all out-of-distribution states and actions equally; prescribes penalties based on the estimated magnitude of model error.
+- Estimation is done both on _states_ and _actions_, allowing generalisation to both, in contrast to model-free approaches that only reason about uncertainty with respect to actions.
 - Whereas MOReL constructs terminating states based on a hard threshold on uncertainty, MOPO uses a soft reward penalty to incorporate uncertainty. This potentially allows the policy to take a few risky actions before returning to the confident area near the behavioural distribution without being terminated.
+- Balance the return and risk
+  - The potential gain in performance by escaping the behavioural distribution and finding a better policy
+  - The risk of overfitting to the errors of the dynamics are regions far away from the behavioural distribution
 - Evaluation on tasks requiring out-of-distribution generalisation
 
 ## Setting Up Their Repo

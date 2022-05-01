@@ -8,16 +8,19 @@ Relevant Methods
    :maxdepth: 1
 
    rl_methods/mopo
+   rl_methods/morel
    rl_methods/mabe
 
 
-Causal Inference
-----------------
+Causal Inference/RL
+-------------------
 
 .. toctree::
    :maxdepth: 1
 
    causal_inference/causal_rl
+   causal_inference/causal_confusion_in_imitation_learning
+
 
 Domain Generalisation
 ---------------------
