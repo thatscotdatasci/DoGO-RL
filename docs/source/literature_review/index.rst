@@ -10,6 +10,7 @@ Relevant Methods
    rl_methods/mopo
    rl_methods/morel
    rl_methods/mabe
+   rl_methods/combo
 
 
 Causal Inference/RL
