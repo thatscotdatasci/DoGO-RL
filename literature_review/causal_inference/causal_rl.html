@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Causal Reinforcement Learning &mdash; DoGO 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Causal Confusion in Imitation Learning" href="causal_confusion_in_imitation_learning.html" />
+    <link rel="prev" title="COMBO: Conservative Offline Model-Based Policy Optimisation" href="../rl_methods/combo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DoGO
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Literature Review</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#relevant-methods">Relevant Methods</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#causal-inference-rl">Causal Inference/RL</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Causal Reinforcement Learning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#notes-key-takeaways">Notes/Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_confusion_in_imitation_learning.html">Causal Confusion in Imitation Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#domain-generalisation">Domain Generalisation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DoGO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Literature Review</a> &raquo;</li>
+        
+      <li>Causal Reinforcement Learning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/literature_review/causal_inference/causal_rl.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="causal-reinforcement-learning">
+<h1>Causal Reinforcement Learning<a class="headerlink" href="#causal-reinforcement-learning" title="Permalink to this headline">¶</a></h1>
+<p>ICML 2020 Tutorial: <a class="reference external" href="https://crl.causalai.net/">website link</a></p>
+<p>You Tube Videos: <a class="reference external" href="https://www.youtube.com/watch?v=QRTgLWfFBMM">Part 1</a> - <a class="reference external" href="https://www.youtube.com/watch?v=2hGvd_9ho6s">Part 2</a></p>
+<div class="section" id="notes-key-takeaways">
+<h2>Notes/Key Takeaways<a class="headerlink" href="#notes-key-takeaways" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Goal of the tutorial was to introduce a common language and understanding between RL and CI domains.</p>
+<ul class="simple">
+<li><p>Reality can be decomposed into causal elements - <strong>structural causal models</strong></p></li>
+<li><p>Exhibit the feature of <strong>autonomy</strong>/<strong>modularity</strong></p></li>
+<li><p>Reality exists, and it is modular - can be decomposed as a collection of causal mechanisms</p></li>
+<li><p>Two sides of the structural model:</p>
+<ul>
+<li><p><strong>Explainability</strong>: Effect identification and decomposition, bias analysis and fairness, robustness and generalisability</p></li>
+<li><p><strong>Decision-Making</strong>: RL, randomised control trials, personalised decision-making.</p></li>
+<li><p>Some interaction between these two - if you understand more about the system you can be more accurate in the bringing about the change you’re looking for.</p></li>
+</ul>
+</li>
+</ul>
+<p>What is causal RL?</p>
+<ul class="simple">
+<li><p>Reinforcement Learning (RL) is great at handling sample complexity and credit assignment (delayed reward/gratification)</p></li>
+<li><p>Causal inference (CI) is great at leveraging structural invariances across settings, conditions and environments</p></li>
+<li><p>Can we have the best of both worlds?</p></li>
+<li><p>Simple solution:</p>
+<ul>
+<li><p>Causal RL = CI + RL</p></li>
+<li><p>Want to provide a cohesive framework that takes advantage of the capabilities of both formalisms (from first principles), and that allows us to develop the next generation of AI systems.</p></li>
+</ul>
+</li>
+</ul>
+<p>### Part 1: Foundations of CRL</p>
+<ul class="simple">
+<li><p>RL exhibits <strong>adaptive learning</strong>: each action is tailored for the evolving covariates and actions’ history</p></li>
+<li><p>Learning without having a full specification of the system; versus planning/programming</p></li>
+</ul>
+<p><img alt="model" src="../../_images/causal_rl_1.png" /></p>
+<ul class="simple">
+<li><p>The environment and the agent will be tied through the pair SCM <span class="math notranslate nohighlight">\(M\)</span> (environment side) and causal graph <span class="math notranslate nohighlight">\(G\)</span> (agent’s “mind”)</p></li>
+<li><p>We’ll define difference types of actions, or interactions, to avoid ambiguity (PCH)</p></li>
+</ul>
+<p>#### Structural Causal Model (SCM)</p>
+<ul class="simple">
+<li><p>Representing the data generating model</p></li>
+</ul>
+<p><img alt="graph" src="../../_images/causal_rl_2.png" /></p>
+<ul class="simple">
+<li><p>Can sample from the process on the left, giving rise to <span class="math notranslate nohighlight">\(P(Z,X,Y)\)</span></p></li>
+<li><p>On the right, we are fixing the process so that the Drug is always administered</p>
+<ul>
+<li><p>Usually, this might instead be random (randomised trial), or could be a function of one of the other variables (like age)</p></li>
+</ul>
+</li>
+<li><p>If we can contrive a situation in the world matching the right then we can sample from the process</p>
+<ul>
+<li><p>Gives rise to the <em>experimental/interventional distribution</em></p></li>
+</ul>
+</li>
+<li><p>A <em>structural causal model, M</em> (or, data generating model) is a tuple (<span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(P(u)\)</span>)</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> are <em>endogeneous</em> (i.e., observable) variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> are  <em>exogeneous</em> (i.e. unobservable) variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> are functions determining <span class="math notranslate nohighlight">\(V\)</span>, for each <span class="math notranslate nohighlight">\(V_i \leftarrow f_i(Pa_i, U_i)\)</span> where <span class="math notranslate nohighlight">\(Pa_x \subset V, U_i \subset U\)</span></p>
+<ul>
+<li><p>They listen to the observable and unobservable variables</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(P(u)\)</span> is a distribution over <span class="math notranslate nohighlight">\(U\)</span></p></li>
+</ul>
+</li>
+<li><p>SCM <span class="math notranslate nohighlight">\(M\)</span> (an instantiation of the object) implies the <em>Pearl Causal Hierarchy (PCH)</em></p>
+<ul>
+<li><p>See the <em>Book of Why</em></p></li>
+<li><p>Different levels/rungs</p></li>
+<li><p><strong>Counterfactual</strong>: We have the <em>factual</em>, or what did happen and was observed. In the <em>counterfactual</em> case we want to consider what the observation still have happened if we didn’t take the action we did.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="PCH" src="../../_images/causal_rl_3.png" /></p>
+<ul class="simple">
+<li><p>Counterfactual is the most detailed layer</p></li>
+</ul>
+<div class="section" id="casual-hierarchy-theorem-cht">
+<h4>Casual Hierarchy Theorem (CHT)<a class="headerlink" href="#casual-hierarchy-theorem-cht" title="Permalink to this headline">¶</a></h4>
+<p>Given that an SCM <span class="math notranslate nohighlight">\(M\)</span> <span class="math notranslate nohighlight">\(\rightarrow\)</span> PCH, we can show the following:</p>
+<p><em>Theorem CHT: With respect to Lebesgue measure (over a suitable encoding of <span class="math notranslate nohighlight">\(L_3\)</span>-equivalence classes of) SCMs, the subset in which any Pearl Causal Hierarchy (PCH) collapse is measure zero.</em></p>
+<p>Informally, for almost any SCM (i.e., almost any possible environment), the PCH does not collapse, i.e. the layers of the hierarchy remain distinct. One is strictly more powerful than the other. It is not the case that there are simply facts about the world we’re unaware of.</p>
+<p>Corollary: to answer questions at Layer i (about a certain action), one needs knowledge at layer i or higher.</p>
+<p>Causal interference is non-trivial as SCMs are almost never fully observed. Exceptions are in Physics, Chemistry, Biology, which learn about the mechanisms at a very detailed level. For most of the settings in which we introduced AI, the SCM is not observed. Usually humans are involved in some way <span class="math notranslate nohighlight">\(\rightarrow\)</span> never clean.</p>
+<p>Layer 1 underdetermines layer 2 <span class="math notranslate nohighlight">\(\rightarrow\)</span> cannot move from <span class="math notranslate nohighlight">\(L_1\)</span> to <span class="math notranslate nohighlight">\(L_2\)</span>.</p>
+<p>Causal graph <span class="math notranslate nohighlight">\(G\)</span> conveys structural constraints:</p>
+<ul class="simple">
+<li><p>Templates (MDP, multi-arm bandit (MAB)) - assumption that world conforms to some cookie-cutter pattern</p></li>
+<li><p>Knowledge engineering - extra information about the environment; encoding some form of constraints</p></li>
+<li><p>Causal discovery</p></li>
+</ul>
+<p>Key points, so far</p>
+<ul class="simple">
+<li><p>The environment (mechanisms) can be modelled as an SCM</p>
+<ul>
+<li><p>SCM <span class="math notranslate nohighlight">\(M\)</span> (a specific environment) is rarely observable</p></li>
+</ul>
+</li>
+<li><p>Still, each SCM <span class="math notranslate nohighlight">\(M\)</span> can be probed through qualitatively different types of interactions (distributions) - the PCH - i.e.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(L_1\)</span>: Observational</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_2\)</span>: Interventional</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_3\)</span>: Counterfactual</p></li>
+</ul>
+</li>
+<li><p>CHT: For almost any SCM, lower layers underdetermine higher layers</p>
+<ul>
+<li><p>This delimits (constrains) what an agent can infer based on the different types of interactions (and data) it has with the environment</p></li>
+<li><p>For instance, from passively observing the environment (<span class="math notranslate nohighlight">\(L_1\)</span>), it cannot infer how to act (<span class="math notranslate nohighlight">\(L_2\)</span>)</p></li>
+<li><p>From intervening in the environment (<span class="math notranslate nohighlight">\(L_2\)</span>), it cannot infer how things would have been had the agent acted differently (<span class="math notranslate nohighlight">\(L_3\)</span>)</p></li>
+</ul>
+</li>
+<li><p>Causal graph <span class="math notranslate nohighlight">\(G\)</span> is a surrogate of the invariances of the SCM <span class="math notranslate nohighlight">\(M\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="current-methods">
+<h4>Current Methods<a class="headerlink" href="#current-methods" title="Permalink to this headline">¶</a></h4>
+<p>Goal: Learning a policy <span class="math notranslate nohighlight">\(\pi\)</span> such that a sequence of actions <span class="math notranslate nohighlight">\(\pi(\cdot)=(X_1,X_2,\ldots,X_n)\)</span> maximises the reward <span class="math notranslate nohighlight">\(\mathbb{E}_\pi[Y|do(X)]\)</span>.</p>
+<p>Current strategies found in literature:</p>
+<ul class="simple">
+<li><p>Online learning: agent performs experiments itself (<span class="math notranslate nohighlight">\(\rightarrow\)</span> do(x))</p></li>
+<li><p>Off-policy learning: agent learns from other agents’ actions (do(x) <span class="math notranslate nohighlight">\(\rightarrow\)</span> do(x))</p></li>
+<li><p>Do-calculus learning: agent observes other agents acting (see(x) <span class="math notranslate nohighlight">\(\rightarrow\)</span> do(x))</p></li>
+</ul>
+<p>Both the second and third pints are offline. In the second bullet we know why the agent being observed did what it did, in the third bullet point we don’t know whether the agent acted purposefully or not.</p>
+<div class="section" id="online-learning">
+<h5>Online Learning<a class="headerlink" href="#online-learning" title="Permalink to this headline">¶</a></h5>
+<p>Finding x* is immediate once <span class="math notranslate nohighlight">\(\mathbb{E}_\pi[Y|do(X)]\)</span> is learned. <span class="math notranslate nohighlight">\(\mathbb{E}_\pi[Y|do(X)]\)</span> can be estimated through randomised experiments or adaptive strategies</p>
+<ul class="simple">
+<li><p>Pros: Robust against <em>unobserved confounders (UCs)</em>: variables that effect more than one observable</p></li>
+<li><p>Cons: Experiments can bu expensive, impossible, expensive or unethical</p></li>
+</ul>
+<p><img alt="online_learning" src="../../_images/causal_rl_4.png" /></p>
+</div>
+<div class="section" id="covariate-specific-causal-effects-contextual">
+<h5>Covariate-Specific Causal Effects (Contextual)<a class="headerlink" href="#covariate-specific-causal-effects-contextual" title="Permalink to this headline">¶</a></h5>
+<p>Model can be augmented to accommodate set of observed covariates C (also known as context); U is the set of (remaining) unobserved confounders (UCs).</p>
+<p>The goal is to learn a policy <span class="math notranslate nohighlight">\(\pi(c)\)</span> so as to optimise based on the c-specific causal effect, <span class="math notranslate nohighlight">\(P(Y|do(X),C=c)\)</span>.</p>
+</div>
+<div class="section" id="off-policy-learning">
+<h5>Off-Policy Learning<a class="headerlink" href="#off-policy-learning" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}_\pi[Y|do(X)]\)</span> can be estimated through experiments conducted by other agents and different policies.</p>
+<ul class="simple">
+<li><p>Pros: no experiments need to be conducted</p></li>
+<li><p>Cons: relies on assumptions that:</p>
+<ul>
+<li><p>the same variables were randomised/controlled</p></li>
+<li><p>context matches</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="do-calculus-learning">
+<h5>Do-Calculus Learning<a class="headerlink" href="#do-calculus-learning" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}_\pi[Y|do(X)]\)</span> can be estimated from non-experimental data (also called <em>natural</em> or <em>behavioural</em> regime)</p>
+<ul class="simple">
+<li><p>Pros: estimation is feasible even when context is unknown and experimental variables do not match (i.e., off-policy assumptions are violated)</p></li>
+<li><p>Cons: Results are contingent on the model; for weak models, effect is not uniquely computable (not ID)</p></li>
+</ul>
+<p>### Part 2:</p>
+<p>Consider six different tasks; focus will be on three of these.</p>
+</div>
+</div>
+<div class="section" id="task-1-generalised-policy-learning-combining-online-and-offline-learning">
+<h4>Task 1: Generalised Policy Learning (combining online and offline learning)<a class="headerlink" href="#task-1-generalised-policy-learning-combining-online-and-offline-learning" title="Permalink to this headline">¶</a></h4>
+<p>Usually undesirable to perform online learning. Want to leverage data collected under different conditions to accelerate learning, without starting from scratch. However, the conditions required by offline learning are not always satisfied in many practical, real-world settings.</p>
+<p>Want to move towards realistic learning scenarios where the modalities come together, including when the most traditional, and provably necessary, assumptions do not hold.</p>
+<p>Robotics example: learning by demonstration when the teacher can observe a richer context (e.g., more accurate sensors).</p>
+<p>Shows a good example where observational data was retained and used when performing exploration (i.e. when we move from the <em>“seeing”</em> to the <em>“doing”</em> paradigm). A problem is encountered whereby there is a mismatch between <span class="math notranslate nohighlight">\(\mathbb{E}[Y|X]\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}[Y|do(X)]\)</span>, which leads to the prior information damaging the agent’s performance (higher cumulative regret it obtained). Reducing the number of prior information is beneficial to agent performance, rather than detrimental.</p>
+<p>The solution is to bound <span class="math notranslate nohighlight">\(\mathbb{E}[Y|do(X)]\)</span> from observations <span class="math notranslate nohighlight">\(P(x,y)\)</span>. Given the observations coming from an distribution <span class="math notranslate nohighlight">\(P(x,y)\)</span>, the average causal effect <span class="math notranslate nohighlight">\(\mathbb{E}[Y|do(X)]\)</span> is bounded in <span class="math notranslate nohighlight">\([l_x,h_x]\)</span>, where <span class="math notranslate nohighlight">\(l_x=\mathbb{E}[Y|x]P(x)\)</span> and <span class="math notranslate nohighlight">\(h_x=l_x+1-P(x)\)</span></p>
+</div>
+<div class="section" id="task-2-when-and-where-to-intervene-refining-the-policy-space">
+<h4>Task 2: When and where to intervene? (refining the policy space)<a class="headerlink" href="#task-2-when-and-where-to-intervene-refining-the-policy-space" title="Permalink to this headline">¶</a></h4>
+<p>In general, it is assumed that there is a policy space such that actions are fixed a-priori (e.g., a set <span class="math notranslate nohighlight">\(X=\{X_1,\ldots,X_k\}\)</span>), and intervening is usually assumed to lead to positive outcomes. Want to understand when interventions are required, or if they may lead to unintended consequences. In the case interventions may be needed, we would like to understand what should be changed in the underlying environment so as to bring a desired state of affairs about (e.g., rather than pulling all levers, determine which ones we should pull).</p>
+</div>
+<div class="section" id="task-3-counterfactual-decision-making">
+<h4>Task 3: Counterfactual Decision-Making<a class="headerlink" href="#task-3-counterfactual-decision-making" title="Permalink to this headline">¶</a></h4>
+<p>Agents act in a reflexive manner, without considering the reasons (or causes) for behaving in a particular way. Whenever this is the case, they can be exploited without ever realising. This is general phenomenon in online learning - all known RL algorithms are causal-insensitive.</p>
+<p>Goal is to endow agents with the capability of performing counterfactual reasoning (taking their own intent into account), which leads to a more refined notion of regret and a new OPT function.</p>
+</div>
+</div>
+<div class="section" id="crl-cheat-sheet">
+<h3>CRL Cheat Sheet<a class="headerlink" href="#crl-cheat-sheet" title="Permalink to this headline">¶</a></h3>
+<p><img alt="cheat_sheet" src="../../_images/causal_rl_5.png" /></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_confusion_in_imitation_learning.html" class="btn btn-neutral float-right" title="Causal Confusion in Imitation Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../rl_methods/combo.html" class="btn btn-neutral float-left" title="COMBO: Conservative Offline Model-Based Policy Optimisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, Alan Clark
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

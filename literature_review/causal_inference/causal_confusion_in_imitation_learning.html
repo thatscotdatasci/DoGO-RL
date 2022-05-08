@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Causal Confusion in Imitation Learning &mdash; DoGO 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Generalizing to Unseen Domains: A Survey on Domain Generalization" href="../domain_generalisation/generalising_to_unseen_domains.html" />
+    <link rel="prev" title="Causal Reinforcement Learning" href="causal_rl.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DoGO
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Literature Review</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#relevant-methods">Relevant Methods</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#causal-inference-rl">Causal Inference/RL</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_rl.html">Causal Reinforcement Learning</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Causal Confusion in Imitation Learning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#key-points">Key Points</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#domain-generalisation">Domain Generalisation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DoGO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Literature Review</a> &raquo;</li>
+        
+      <li>Causal Confusion in Imitation Learning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/literature_review/causal_inference/causal_confusion_in_imitation_learning.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="causal-confusion-in-imitation-learning">
+<h1>Causal Confusion in Imitation Learning<a class="headerlink" href="#causal-confusion-in-imitation-learning" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Paper link: <a class="reference external" href="https://arxiv.org/abs/1905.11979">Arxiv</a></p></li>
+</ul>
+<div class="section" id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Treating policy learning as a supervised learning task can lead to causal misidentification due to distributional shift</p></li>
+<li><p>Characterised by generalisation performance worsening as more information becomes available (good brake light example)</p></li>
+<li><p>Causal misidentification := phenomenon whereby cloned policies fail by misidentifying the causes of expert actions</p></li>
+<li><p>Proposes two methods of resolving: <em>expert query mode</em> and <em>policy execution mode</em></p></li>
+<li><p>Whilst they work well, both methods require interaction with the environment via the actions. In the former we query the expert based on stats with high disagreement, in the latter we collect rewards based on executing <span class="math notranslate nohighlight">\(\pi_G\)</span></p></li>
+<li><p>need to read up more on <em>FCMs: Functional Causal Models</em></p></li>
+<li><p>Clear to me how this could be an issue for offline RL; unclear how we could address</p></li>
+<li><p>Possible to consider FCMs in advance? Could hold-out data, but probably don’t have enough.</p></li>
+<li><p>Training with dropout/ ensembling is interesting</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../domain_generalisation/generalising_to_unseen_domains.html" class="btn btn-neutral float-right" title="Generalizing to Unseen Domains: A Survey on Domain Generalization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_rl.html" class="btn btn-neutral float-left" title="Causal Reinforcement Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, Alan Clark
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

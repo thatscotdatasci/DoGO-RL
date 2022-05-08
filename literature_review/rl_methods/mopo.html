@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MOPO: Model-based Offline Policy Optimization &mdash; DoGO 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MoREL: Model-Based Offline Reinforcement Learning" href="morel.html" />
+    <link rel="prev" title="Literature Review" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DoGO
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Literature Review</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#relevant-methods">Relevant Methods</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MOPO: Model-based Offline Policy Optimization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#key-points">Key Points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-their-repo">Setting Up Their Repo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="morel.html">MoREL: Model-Based Offline Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mabe.html">MABE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="combo.html">COMBO: Conservative Offline Model-Based Policy Optimisation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-inference-rl">Causal Inference/RL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#domain-generalisation">Domain Generalisation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DoGO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Literature Review</a> &raquo;</li>
+        
+      <li>MOPO: Model-based Offline Policy Optimization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/literature_review/rl_methods/mopo.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="mopo-model-based-offline-policy-optimization">
+<h1>MOPO: Model-based Offline Policy Optimization<a class="headerlink" href="#mopo-model-based-offline-policy-optimization" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Paper link: <a class="reference external" href="https://arxiv.org/abs/2005.13239">Arxiv</a></p></li>
+<li><p>Git Repo: <a class="reference external" href="https://github.com/tianheyu927/mopo">GitHub</a></p></li>
+</ul>
+<div class="section" id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+<p>The following were the key takeaways:</p>
+<ul class="simple">
+<li><p>Importance for an offline RL algorithm to be able to leave the support of the training data:</p>
+<ul>
+<li><p>The provided batch dataset is usually sub-optimal in terms of both the states and actions covered by the dataset</p></li>
+<li><p>The target task can be different from the tasks performed in the batch data for various reasons (e.g., hard to collect for the target task)</p></li>
+</ul>
+</li>
+<li><p>State-of-the-art off-policy model based (MBPO) and model-free algorithms evaluated. Model-based method and its variant without ensembles show surprisingly large gains. Suggests that model-based methods are particularly well-suited for the batch setting.</p></li>
+<li><p>Quantifying the risk imposed by imperfect dynamics and appropriately trading off that risk with the return is a key ingredient towards building a strong offline model-based RL algorithm</p></li>
+<li><p>The authors modify MBPO to to incorporate a <em>reward penalty</em> based on an estimate of the model error. Estimate is model-dependent and does not necessarily penalise all out-of-distribution states and actions equally; prescribes penalties based on the estimated magnitude of model error.</p></li>
+<li><p>Estimation is done both on <em>states</em> and <em>actions</em>, allowing generalisation to both, in contrast to model-free approaches that only reason about uncertainty with respect to actions.</p></li>
+<li><p>Whereas MOReL constructs terminating states based on a hard threshold on uncertainty, MOPO uses a soft reward penalty to incorporate uncertainty. This potentially allows the policy to take a few risky actions before returning to the confident area near the behavioural distribution without being terminated.</p></li>
+<li><p>Balance the return and risk</p>
+<ul>
+<li><p>The potential gain in performance by escaping the behavioural distribution and finding a better policy</p></li>
+<li><p>The risk of overfitting to the errors of the dynamics are regions far away from the behavioural distribution</p></li>
+</ul>
+</li>
+<li><p>Evaluation on tasks requiring out-of-distribution generalisation</p></li>
+</ul>
+</div>
+<div class="section" id="setting-up-their-repo">
+<h2>Setting Up Their Repo<a class="headerlink" href="#setting-up-their-repo" title="Permalink to this headline">¶</a></h2>
+<p>The repo has not been updated since the end of 2020. Not all library versions were fixed, and certain updates to Git protocols precented a simple installation.</p>
+<p>The following steps were necessary:</p>
+<ul class="simple">
+<li><p>Clone the <a class="reference external" href="https://github.com/tianheyu927/mopo">MOPO Git repo</a>: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:tianheyu927/mopo.git</span></code></p></li>
+<li><p>The following library versions were updated:</p>
+<ul>
+<li><p>absl-py==0.7.0</p></li>
+<li><p>cloudpickle==1.2.0</p></li>
+<li><p>pyglet==1.4.0</p></li>
+<li><p>tensorflow==1.14.0 (Note: the version has stayed the same, but changed away from GPU)</p></li>
+</ul>
+</li>
+<li><p>Create a venv using Python 3.7.x</p></li>
+<li><p>Within <code class="docutils literal notranslate"><span class="pre">environments/requirements.txt</span></code>, comment out the final line: <code class="docutils literal notranslate"><span class="pre">git+https://github.com/rail-berkeley/d4rl&#64;master#egg=d4rl</span></code></p></li>
+<li><p>Clone the <a class="reference external" href="https://github.com/rail-berkeley/d4rl">D4RL Git repo</a> within the MOPO repo: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:rail-berkeley/d4rl.git</span></code></p></li>
+<li><p>Within <code class="docutils literal notranslate"><span class="pre">d4rl/setup.py</span></code>, comment out the requirement for dm_control</p></li>
+<li><p>Clone the <a class="reference external" href="https://github.com/deepmind/dm_control">dm_control repo</a>: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:deepmind/dm_control.git</span></code></p></li>
+<li><p>cd into <code class="docutils literal notranslate"><span class="pre">dm_control</span></code> and run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">2cb60cb9ca5921f2a82e6e371b0bcc4a1a96e610</span></code></p>
+<ul>
+<li><p>This is likely to be the version used in the paper, or at least close</p></li>
+</ul>
+</li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">dm_control/setup.py</span></code> and edit <code class="docutils literal notranslate"><span class="pre">DEFAULT_HEADERS_DIR</span></code> to wherever mujoco has been installed</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">dm_control</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">url.&quot;https://&quot;.insteadOf</span> <span class="pre">git://</span></code> - this is necessary due to changes in Git  protocols</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">d4rl</span></code></p></li>
+<li><p>Clone the <a class="reference external" href="https://github.com/vitchyr/viskit">vikit Git repo</a>: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:vitchyr/viskit.git</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">viskit</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="morel.html" class="btn btn-neutral float-right" title="MoREL: Model-Based Offline Reinforcement Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Literature Review" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, Alan Clark
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

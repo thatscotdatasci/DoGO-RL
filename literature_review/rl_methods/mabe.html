@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MABE &mdash; DoGO 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="COMBO: Conservative Offline Model-Based Policy Optimisation" href="combo.html" />
+    <link rel="prev" title="MoREL: Model-Based Offline Reinforcement Learning" href="morel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DoGO
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Literature Review</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#relevant-methods">Relevant Methods</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mopo.html">MOPO: Model-based Offline Policy Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="morel.html">MoREL: Model-Based Offline Reinforcement Learning</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MABE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#key-points">Key Points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="combo.html">COMBO: Conservative Offline Model-Based Policy Optimisation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-inference-rl">Causal Inference/RL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#domain-generalisation">Domain Generalisation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DoGO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Literature Review</a> &raquo;</li>
+        
+      <li>MABE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/literature_review/rl_methods/mabe.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="mabe">
+<h1>MABE<a class="headerlink" href="#mabe" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Paper link: <a class="reference external" href="https://arxiv.org/abs/2106.09119">Arxiv</a></p></li>
+</ul>
+<div class="section" id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
+<p>The following were the key takeaways:</p>
+<ul class="simple">
+<li><p>Regularisation of the learned policy to keep the agent within the support of the original dataset - KL divergence with behavioural prior. Rather than using uncertainty quantification within the objective function (i.e. reward).</p></li>
+<li><p>Transference of behavioural prior across various dynamics models - can train the dynamics models based on the domain, and the behavioural prior based on the task to be performed</p></li>
+<li><p>Found that uncertainty quantification provided little benefit</p></li>
+<li><p>Table showing other algorithms which have incorporated a behavioural prior. Apart from MOReL/MOPO, most similar is BREMEN \cite{Matsushima2020}, which is designed mainly for deployment efficient RL. Uses an unweighted prior, and small number of policy - h with implicit KL regularisation.</p></li>
+<li><p>No publicly available code implementation</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="combo.html" class="btn btn-neutral float-right" title="COMBO: Conservative Offline Model-Based Policy Optimisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="morel.html" class="btn btn-neutral float-left" title="MoREL: Model-Based Offline Reinforcement Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2022, Alan Clark
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
