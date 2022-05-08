@@ -10,9 +10,10 @@ import torch.nn.functional as F
 import tqdm
 
 EPS = np.finfo(np.float32).eps.item()
+DISCRETISATION_SIZE = 100
 
 # Create the environment
-env = gym.make("CartPole-v1")
+env = gym.make("InvertedPendulum-v2")
 
 # Set seed for experiment reproducibility
 seed = 42
@@ -23,7 +24,6 @@ class ActorCritic(nn.Module):
     def __init__(
         self, 
         state_size: int,
-        num_actions: int, 
         num_hidden_units: int
     ) -> None:
         super().__init__()
@@ -34,7 +34,7 @@ class ActorCritic(nn.Module):
         )
         self.actor = nn.Linear(
             in_features=num_hidden_units,
-            out_features=num_actions
+            out_features=DISCRETISATION_SIZE
         )
         self.critic = nn.Linear(
             in_features = num_hidden_units,
@@ -48,14 +48,13 @@ class ActorCritic(nn.Module):
         return action_prob, state_values
 
 state_size = env.observation_space.shape[0]
-num_actions = env.action_space.n  # 2
 num_hidden_units = 128
 
-model = ActorCritic(state_size, num_actions, num_hidden_units)
+model = ActorCritic(state_size, num_hidden_units)
 
 def env_step(env, action: np.ndarray) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
   """Returns state, reward and done flag given an action."""
-  state, reward, done, _ = env.step(action)
+  state, reward, done, _ = env.step([action])
   return state, reward, done
 
 def run_episode(
@@ -79,10 +78,8 @@ def run_episode(
         action = torch.distributions.Categorical(probs=action_probs).sample()
         saved_action_probs[i] = action_probs[action]
 
-        state, reward, done = env_step(env, action.item())
+        state, reward, done = env_step(env, np.linspace(-3,3,DISCRETISATION_SIZE)[action.item()])
         saved_rewards[i] = reward
-
-        # env.render()
 
         if bool(done):
             break
@@ -143,7 +140,7 @@ def train_step(
 
     return rewards.sum()
 
-optimizer = optim.Adam(model.parameters(), lr=0.01)
+optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 min_episodes_criterion = 100
 max_episodes = 10000
@@ -167,6 +164,8 @@ with tqdm.trange(max_episodes) as t:
 
         episodes_reward.append(episode_reward)
         running_reward = statistics.mean(episodes_reward)
+
+        # env.render()
 
         t.set_description(f'Episode {i}')
         t.set_postfix(
